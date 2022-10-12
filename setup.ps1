@@ -22,6 +22,22 @@ $acs_keys = (az communication list-key --name $acs_name --resource-group $resour
 $acs_keys
 $acs_keys.primaryConnectionString
 $acs_keys.primaryKey
+$acs_keys.primaryConnectionString | clip
+
+#
+# Test example
+# https://github.com/Azure-Samples/communication-services-web-calling-tutorial/
+# ...
+# Disable host check in "webpack.config.js":
+#    devServer: {
+#        open: true,
+#        port: PORT,
+#        disableHostCheck: true, // Add this!
+# npm run start
+#
+
+# Use https://ngrok.com to proxy traffic to local demo
+ngrok http 5000
 
 # Wipe out the resources
 az group delete --name $resource_group_name -y
