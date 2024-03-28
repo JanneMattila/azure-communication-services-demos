@@ -1,9 +1,9 @@
 # All the variables for the deployment
-$subscription_name = "AzureDev"
+$subscription_name = "development"
 
-$acs_name = "myacs"
+$acs_name = "acs000000010"
 
-$resource_group_name = "rg-acs-demo"
+$resource_group_name = "rg-communication-services"
 $location = "westeurope"
 
 # Login and set correct context
@@ -11,7 +11,7 @@ az login -o none
 az account set --subscription $subscription_name -o table
 
 # Create resource group
-az group create -l $location -n $resource_group_name -o table
+az group create --resource-group $resource_group_name --location $location -o table
 
 az communication create --help
 $acs = (az communication create --name $acs_name --location "Global" --data-location "Europe" --resource-group $resource_group_name -o json | ConvertFrom-Json)
